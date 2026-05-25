@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="560" viewBox="0 0 1180 560" role="img" aria-labelledby="title desc">
+  <title id="title">Employee Service Frontend Architecture</title>
+  <desc id="desc">Runtime and intended deployment architecture for the Employee Service React and Vite frontend.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#334155"/>
+    </marker>
+    <style>
+      text { font-family: Arial, sans-serif; }
+      .panel { fill: #f8fafc; stroke: #cbd5e1; stroke-width: 1.5; rx: 18; }
+      .runtime { fill: #ffffff; stroke: #2563eb; stroke-width: 2; rx: 12; }
+      .backend { fill: #f0fdf4; stroke: #16a34a; stroke-width: 2; rx: 12; }
+      .data { fill: #fff7ed; stroke: #f97316; stroke-width: 2; rx: 12; }
+      .deploy { fill: #faf5ff; stroke: #7c3aed; stroke-width: 2; rx: 12; }
+      .label { fill: #0f172a; font-size: 18px; font-weight: 700; text-anchor: middle; }
+      .small { fill: #475569; font-size: 14px; text-anchor: middle; }
+      .section { fill: #334155; font-size: 16px; font-weight: 700; text-anchor: middle; }
+      .note { fill: #64748b; font-size: 13px; text-anchor: middle; }
+      .line { stroke: #334155; stroke-width: 2.3; fill: none; marker-end: url(#arrow); }
+      .dashed { stroke: #64748b; stroke-width: 2.1; stroke-dasharray: 7 6; fill: none; marker-end: url(#arrow); }
+      .api { fill: #1d4ed8; font-size: 13px; text-anchor: middle; }
+    </style>
+  </defs>
+
+  <rect width="1180" height="560" fill="#ffffff"/>
+  <rect x="34" y="32" width="1112" height="292" class="panel"/>
+  <rect x="34" y="356" width="1112" height="156" class="panel"/>
+
+  <text x="590" y="65" class="section">Runtime architecture</text>
+  <text x="590" y="389" class="section">Intended deployment workflow (no workflow file is committed in this repo yet)</text>
+
+  <rect x="72" y="126" width="150" height="82" class="runtime"/>
+  <text x="147" y="160" class="label">Employee</text>
+  <text x="147" y="184" class="small">Portal user</text>
+
+  <rect x="282" y="126" width="150" height="82" class="runtime"/>
+  <text x="357" y="160" class="label">Browser</text>
+  <text x="357" y="184" class="small">Loads app UI</text>
+
+  <rect x="492" y="126" width="170" height="82" class="runtime"/>
+  <text x="577" y="160" class="label">React + Vite</text>
+  <text x="577" y="184" class="small">Static frontend</text>
+
+  <rect x="734" y="126" width="174" height="82" class="backend"/>
+  <text x="821" y="160" class="label">Spring Boot API</text>
+  <text x="821" y="184" class="small">/api/requests</text>
+
+  <rect x="976" y="126" width="130" height="82" class="data"/>
+  <text x="1041" y="160" class="label">H2</text>
+  <text x="1041" y="184" class="small">In-memory DB</text>
+
+  <path d="M222 167 H282" class="line"/>
+  <path d="M432 167 H492" class="line"/>
+  <path d="M662 167 H734" class="line"/>
+  <path d="M908 167 H976" class="line"/>
+  <text x="698" y="144" class="api">VITE_API_BASE_URL, default http://localhost:8080</text>
+  <text x="821" y="235" class="api">GET, POST, PATCH status, DELETE requests</text>
+
+  <rect x="116" y="416" width="155" height="58" class="deploy"/>
+  <text x="193.5" y="440" class="label">GitHub repo</text>
+  <text x="193.5" y="460" class="small">Source code</text>
+
+  <rect x="356" y="416" width="155" height="58" class="deploy"/>
+  <text x="433.5" y="440" class="label">Actions</text>
+  <text x="433.5" y="460" class="small">Planned CI/CD</text>
+
+  <rect x="596" y="416" width="155" height="58" class="deploy"/>
+  <text x="673.5" y="440" class="label">Vite build</text>
+  <text x="673.5" y="460" class="small">dist output</text>
+
+  <rect x="836" y="416" width="190" height="58" class="deploy"/>
+  <text x="931" y="440" class="label">Azure static host</text>
+  <text x="931" y="460" class="small">Static Web Apps or App Service</text>
+
+  <path d="M271 445 H356" class="dashed"/>
+  <path d="M511 445 H596" class="dashed"/>
+  <path d="M751 445 H836" class="dashed"/>
+</svg>

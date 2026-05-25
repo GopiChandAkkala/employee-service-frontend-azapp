@@ -6,22 +6,9 @@ This repository is designed for practicing GitHub Actions CI/CD with a frontend 
 
 ## Architecture
 
-```mermaid
-flowchart LR
-    User["User / Employee"] --> Browser["Browser"]
-    Browser --> Frontend["React + Vite App"]
-    Frontend -->|GET /api/requests| Backend["Spring Boot Backend"]
-    Frontend -->|POST /api/requests| Backend
-    Frontend -->|PATCH /api/requests/{id}/status| Backend
-    Frontend -->|DELETE /api/requests/{id}| Backend
-    Backend --> Database["H2 In-Memory Database"]
+![Employee Service Frontend architecture diagram](docs/architecture-diagram.svg)
 
-    GitHub["GitHub Repository"] --> Actions["GitHub Actions"]
-    Actions --> Install["npm install"]
-    Actions --> Build["npm run build"]
-    Actions --> Artifact["Upload Build Artifact"]
-    Actions --> Deploy["Azure Static Web App / App Service Deployment"]
-```
+The deployment lane shows the intended GitHub Actions and Azure flow. No workflow file is committed in this frontend repository yet.
 
 ## Tech Stack
 
@@ -122,4 +109,3 @@ Backend repository:
 ```text
 employee-service-backend-azapp
 ```
-
